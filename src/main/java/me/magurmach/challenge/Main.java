@@ -83,7 +83,7 @@ public class Main {
 
         MyDFS solver = new MyDFS(graph);
 
-        IntPair reult = solver.getMaximumDepthWithMaximumDrop();
-        System.out.printf("Maximum depth = %d, Maximum drop = %d\n",reult.getFirst(), reult.getSecond());
+        IntPair result = solver.getMaximumDepthWithMaximumDrop();
+        System.out.printf("Maximum depth = %d, Maximum drop = %d\n",result.getFirst(), result.getSecond());
     }
 }
