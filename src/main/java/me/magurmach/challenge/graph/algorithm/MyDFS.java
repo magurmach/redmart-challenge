@@ -44,7 +44,7 @@ public class MyDFS {
         return depthMemo.get(node);
     }
 
-    public IntPair getMaximumDepthWithMinimumValueNode() {
+    public IntPair getMaximumDepthWithMaximumDrop() {
         int maxDepth, maxDrop;
         Set<Node> nodeSet = graph.getNodes();
 
