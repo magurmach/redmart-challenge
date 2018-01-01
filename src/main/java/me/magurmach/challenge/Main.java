@@ -3,6 +3,7 @@ package me.magurmach.challenge;
 import me.magurmach.challenge.graph.Graph;
 import me.magurmach.challenge.graph.Node;
 import me.magurmach.challenge.graph.algorithm.MyDFS;
+import me.magurmach.challenge.util.Hasher;
 import me.magurmach.challenge.util.IntPair;
 
 import java.io.File;
@@ -25,6 +26,8 @@ public class Main {
         int x, y;
         x = in.nextInt();
         y = in.nextInt();
+
+        Hasher.MAXIMUM_WIDTH = y;
 
         nodeGrid = new ArrayList<>();
 
