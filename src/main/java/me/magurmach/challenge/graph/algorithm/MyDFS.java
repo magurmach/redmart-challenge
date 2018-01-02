@@ -32,8 +32,10 @@ public class MyDFS {
             if (adjacencyList != null) {
                 for (Node newNode : adjacencyList) {
                     IntPair newNodeDfsReturnValue = dfs(newNode);
-                    if (maxDept <= newNodeDfsReturnValue.getFirst() + 1) {
+                    if (maxDept < newNodeDfsReturnValue.getFirst() + 1) {
                         maxDept = newNodeDfsReturnValue.getFirst() + 1;
+                        minValue = newNodeDfsReturnValue.getSecond();
+                    } else if (maxDept == newNodeDfsReturnValue.getFirst() + 1) {
                         minValue = Math.min(minValue, newNodeDfsReturnValue.getSecond());
                     }
                 }
@@ -59,8 +61,10 @@ public class MyDFS {
             int depth = dfsRet.getFirst();
             int endNodeValue = dfsRet.getSecond();
 
-            if (maxDepth <= depth) {
+            if (maxDepth < depth) {
                 maxDepth = depth;
+                maxDrop = node.getValue() - endNodeValue;
+            } else if (maxDepth == depth) {
                 maxDrop = Math.max(maxDrop, node.getValue() - endNodeValue);
             }
         }
