@@ -85,5 +85,8 @@ public class Main {
 
         IntPair result = solver.getMaximumDepthWithMaximumDrop();
         System.out.printf("Maximum distance = %d, Maximum drop = %d\n",result.getFirst(), result.getSecond());
+        System.out.printf("So, I guess I should mail to %d%d@redmart.com! " +
+                        "I find this challenge to be exciting! Thanks!\n",
+                result.getFirst(), result.getSecond());
     }
 }
