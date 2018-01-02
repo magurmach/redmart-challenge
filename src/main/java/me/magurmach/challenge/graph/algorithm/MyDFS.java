@@ -14,29 +14,32 @@ import java.util.Set;
 public class MyDFS {
     private Graph graph;
 
-    HashMap<Node, IntPair> depthMemo;
+    private HashMap<Node, IntPair> depthMemo;
 
     public MyDFS(Graph graph) {
         this.graph = graph;
+        depthMemo = new HashMap<>();
     }
 
     private IntPair dfs(Node node) {
 
         if (!depthMemo.containsKey(node)) {
             int maxDept, minValue;
-            maxDept = 0;
+            maxDept = 1;
             minValue = Integer.MAX_VALUE;
             ArrayList<Node> adjacencyList = graph.getAdjacency(node);
 
-            for (Node newNode : adjacencyList) {
-                IntPair newNodeDfsReturnValue = dfs(newNode);
-                if (maxDept <= newNodeDfsReturnValue.getFirst() + 1) {
-                    maxDept = newNodeDfsReturnValue.getSecond() + 1;
-                    minValue = Math.min(minValue, newNodeDfsReturnValue.getSecond());
+            if (adjacencyList != null) {
+                for (Node newNode : adjacencyList) {
+                    IntPair newNodeDfsReturnValue = dfs(newNode);
+                    if (maxDept <= newNodeDfsReturnValue.getFirst() + 1) {
+                        maxDept = newNodeDfsReturnValue.getFirst() + 1;
+                        minValue = Math.min(minValue, newNodeDfsReturnValue.getSecond());
+                    }
                 }
             }
 
-            if (maxDept == 0) minValue = node.getValue();
+            if (maxDept == 1) minValue = node.getValue();
 
             depthMemo.put(node, new IntPair(maxDept, minValue));
         }
