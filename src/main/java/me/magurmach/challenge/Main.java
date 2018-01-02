@@ -54,7 +54,7 @@ public class Main {
                 for (k = 0; k < directionX.length; k++) {
                     int nx = i + directionX[k];
                     int ny = j + directionY[k];
-                    if (inRange(nx, 0, nodeGrid.size() -1) && inRange(ny, 0, nodeGrid.get(i).size())
+                    if (inRange(nx, 0, nodeGrid.size() -1) && inRange(ny, 0, nodeGrid.get(i).size() - 1)
                             && nodeGrid.get(i).get(j).getValue() > nodeGrid.get(nx).get(ny).getValue()) {
                         graph.addAdjacency(nodeGrid.get(i).get(j), nodeGrid.get(nx).get(ny));
                     }
@@ -68,7 +68,7 @@ public class Main {
     public static void main(String[] args) {
         String fileName = "test.txt";
 
-        if (args.length > 2 && args[0].equals("-i")) {
+        if (args.length >= 2 && args[0].equals("-i")) {
             fileName = args[1];
         }
 
